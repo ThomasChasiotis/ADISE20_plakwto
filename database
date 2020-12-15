@@ -1,0 +1,34 @@
+Δημιουργία μιας SQL βάσης δεδομένων στο cloud στο https://remotemysql.com/
+DB name: AwHZ1cGjqL
+
+Tables: 
+
+
+CREATE TABLE `game_status` (
+  `status` enum('not active','initialized','started','\nended','aborded') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'not active',
+  `p_turn` enum('A','M') COLLATE utf8_unicode_ci DEFAULT NULL,
+  `result` enum('A','M') COLLATE utf8_unicode_ci DEFAULT NULL,
+  `last_change` timestamp NULL DEFAULT NULL
+);
+
+CREATE TABLE `new_tavli_board` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pouli` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `thesi` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `tavli_board` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pouli` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `thesi` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `color` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ;
